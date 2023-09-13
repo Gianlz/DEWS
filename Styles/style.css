@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0; /* Aumente o padding vertical para tornar o header maior */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6600;
+}
+
+
+/* Estilos para as seções */
+section {
+    padding: 40px;
+    text-align: center;
+}
+
+/* Estilos para o carrossel de projetos */
+#project-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h3 {
+    font-size: 18px;
+}
+
+/* Estilos para a seção de contato */
+#contato {
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Estilos para a barra de pesquisa */
+.search-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+#search-button {
+    background-color: #3d4175;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #3d4175;
+    transform: scale(1.05);
+}
+
+/* Estilos para a seção de home com imagem de fundo */
+#home {
+    background-image: url('https://images8.alphacoders.com/130/1304871.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px;
+}
+
+#home h1 {
+    font-size: 36px;
+}
+
+/* Estilos para o carrossel de projetos */
+.project-carousel {
+    text-align: center;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.project-carousel .carousel-slide {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.project-carousel .carousel-slide img {
+    max-width: 100%;
+    height: auto;
+}
+
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+}
+
+/* Estilos para a barra de pesquisa no menu */
+.search-bar {
+    display: none;
+}
+
+
+/* Consulta de mídia para telas maiores (por exemplo, tablets e desktops) */
+@media screen and (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .search-bar {
+        display: block;
+    }
+}
+
+/* Estilos para os botões do carrossel */
+.slick-prev,
+.slick-next {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    cursor: pointer;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    background-color: #ff8800;
+}
+
+/* Posiciona o botão de próximo (slick-next) à direita */
+.slick-next {
+    right: 10px;
+}
+
+/* Posiciona o botão de anterior (slick-prev) à esquerda */
+.slick-prev {
+    left: 10px;
+}
