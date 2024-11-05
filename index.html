@@ -3,72 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu GitHub</title>
-    <link rel="stylesheet" href="Styles/style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <title>Gianluca - Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">G.</div>
             <div class="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#sobre-mim">Sobre Mim</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                <li><a href="#sobre-mim" class="nav-link">Sobre Mim</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Pesquisar">
-                <button id="search-button">Pesquisar</button>
-            </div>
         </nav>
     </header>
 
-    <section id="home">
-        <h1>Bem-vindo ao Meu GitHub</h1>
-    </section>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 class="glowing-text">Olá, eu sou Gianluca</h1>
+                <p class="subtitle">Desenvolvedor & Entusiasta de IA</p>
+                <div class="cta-buttons">
+                    <a href="#projetos" class="cta-primary">Ver Projetos</a>
+                    <a href="#contato" class="cta-secondary">Contato</a>
+                </div>
+            </div>
+        </section>
 
-    <section id="projetos">
-        <h2>Meus Projetos</h2>
-        <div id="project-carousel" class="project-carousel project-carousel-slider">
-            <!-- Os projetos serão adicionados aqui dinamicamente via JavaScript -->
-        </div>
-        <button id="prev-slide">Anterior</button>
-        <button id="next-slide">Próximo</button>
-    </section>
-    
-    <section id="sobre" style="text-align: center; padding: 20px; width: 700px; margin: 0 auto;">
-        <h2 style="font-size: 24px; margin-bottom: 20px;">Sobre Mim</h2>
-        <p style="font-size: 18px; line-height: 1.6;">
-            Olá, sou Gianluca, um apaixonado pela ciência da computação tenho 20 anos de idade. Minha área de foco atual inclui Computer Vision, Machine Learning e Inteligência Artificial. Estou sempre buscando aprender mais e atualmente estou aprofundando meus conhecimentos em Python e Java. Uma curiosidade interessante sobre mim é que comecei a usar computadores aos 3 anos de idade.
-        </p>
-    </section>
+        <section id="projetos" class="projects-section">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="project-carousel">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/chale.png" alt="Chale Livros">
+                    </div>
+                    <div class="project-info">
+                        <h3>Chale Livros</h3>
+                        <p>Sistema de gerenciamento de livros</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <a href="https://github.com/Gianlz/ChaleLivros-Web-II" class="project-link">Ver Projeto <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
 
-    <section id="contato" style="background-color: #333; color: #fff; text-align: center; padding: 40px;">
-        <h2 style="font-size: 24px; margin-bottom: 20px;">Contato</h2>
-        <div align="center">
-            <div style="display: flex; justify-content: center; align-items: center; gap: 30px;">
-                <a href="https://instagram.com/G1anzzz" target="_blank" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
-                    <img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="Instagram" style="width: 40px; height: 40px; margin-bottom: 10px;" />
-                    <span style="color: #fff; font-weight: bold;">Instagram</span>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/lion.png" alt="OPENCV HSV_filters">
+                    </div>
+                    <div class="project-info">
+                        <h3>PyQt5 - OpenCV HSV</h3>
+                        <p>Aplicação para filtrar cores em tempo real usando OpenCV e PyQt5</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>OpenCV</span>
+                            <span>PyQt5</span>
+                            <span>Numpy</span>
+                        </div>
+                        <a href="https://github.com/Gianlz/OPENCV-HSV_filters" class="project-link">Ver Projeto <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/hyprland.jpg" alt="Hyprland-dot">
+                    </div>
+                    <div class="project-info">
+                        <h3>Hyprland-dot</h3>
+                        <p>Configuração do Hyprland para Arch Linux</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Arch Linux</span>
+                            <span>Hyprland</span>
+                        </div>
+                        <a href="https://github.com/Gianlz/Hyprland-dot" class="project-link">Ver Projeto <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/river.jpg" alt="River API">
+                    </div>
+                    <div class="project-info">
+                        <h3>River API</h3>
+                        <p>API para acesso a dados da altura do Rio Itajai</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>Web Scraping</span>
+                        </div>
+                        <a href="https://github.com/Gianlz/RiverAPI" class="project-link">Ver Projeto <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button id="prev-slide" class="carousel-button"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-slide" class="carousel-button"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="sobre-mim" class="about-section">
+            <div class="about-container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Olá, sou Gianluca, um apaixonado pela ciência da computação tenho 20 anos de idade. Minha área de foco atual inclui Computer Vision, Machine Learning e Inteligência Artificial.</p>
+                        <p>Estou sempre buscando aprender mais e atualmente estou aprofundando meus conhecimentos em Python e Java. Uma curiosidade interessante sobre mim é que comecei a usar computadores aos 3 anos de idade.</p>
+                    </div>
+                    <div class="skills">
+                        <h3>Habilidades</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section">
+            <h2 class="section-title">Vamos Conversar?</h2>
+            <div class="social-links">
+                <a href="https://instagram.com/G1anzzz" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
                 </a>
-                <a href="https://linkedin.com/in/gianlucazugno" target="_blank" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
-                    <img src="https://img.icons8.com/ios/50/000000/linkedin.png" alt="LinkedIn" style="width: 40px; height: 40px; margin-bottom: 10px;" />
-                    <span style="color: #fff; font-weight: bold;">LinkedIn</span>
+                <a href="https://linkedin.com/in/gianlucazugno" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Pesquisar...">
-        <button id="search-button">Pesquisar</button>
-    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Gianluca. Todos os direitos reservados.</p>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

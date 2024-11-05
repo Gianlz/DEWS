@@ -1,81 +1,91 @@
-// Use AJAX para carregar projetos do GitHub
-$(document).ready(function () {
-    $.ajax({
-        url: 'https://api.github.com/users/seu-usuario/repos',
-        dataType: 'json',
-        success: function (data) {
-            // Processar os dados e criar o carrossel de projetos aqui
-        }
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
 
-// Mapeamento entre nomes de Pokémon e repositórios do GitHub
-const pokemonToRepo = {
-    "bulbasaur": "NomeDoRepositorio1",
-    "charmander": "NomeDoRepositorio2",
-    "squirtle": "NomeDoRepositorio3",
-    // Adicione mais Pokémon e repositorios conforme necessário
+// Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+
+// Project carousel initialization
+$(document).ready(function(){
+    $('.project-carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        prevArrow: $('#prev-slide'),
+        nextArrow: $('#next-slide'),
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+});
+
+// Header scroll effect
+const header = document.querySelector('.header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        header.classList.remove('scroll-up');
+        return;
+    }
+    
+    if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+        header.classList.remove('scroll-up');
+        header.classList.add('scroll-down');
+    } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+        header.classList.remove('scroll-down');
+        header.classList.add('scroll-up');
+    }
+    lastScroll = currentScroll;
+});
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+    root: null,
+    threshold: 0.1,
+    rootMargin: '0px'
 };
 
-// Função para buscar informações sobre Pokémon usando a API do Pokémon
-function getPokemonInfo() {
-    const apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=10"; // Limitamos a 10 Pokémon neste exemplo
-
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            // Chamada de função para buscar os repositórios do GitHub
-            getGitHubRepos(data.results);
-        })
-        .catch(error => console.error(error));
-}
-
-// Função para buscar os repositórios do GitHub do usuário "Gianlz" usando a API do GitHub
-function getGitHubRepos(pokemonList) {
-    const githubApiUrl = "https://api.github.com/users/Gianlz/repos";
-
-    fetch(githubApiUrl)
-        .then(response => response.json())
-        .then(repos => {
-            // Chamada de função para criar o carrossel com as informações de Pokémon e repositórios
-            createPokemonCarousel(pokemonList, repos);
-        })
-        .catch(error => console.error(error));
-}
-
-// Função para criar o carrossel com as informações de Pokémon e repositórios
-function createPokemonCarousel(pokemonList, githubRepos) {
-    const projectCarousel = document.getElementById("project-carousel");
-
-    pokemonList.forEach((pokemon, index) => {
-        const projectCard = document.createElement("a"); // Usando <a> em vez de <div>
-        projectCard.classList.add("carousel-slide");
-        projectCard.href = `https://github.com/Gianlz/${githubRepos[index].name}`; // Link para o repositório GitHub
-
-        const projectImage = document.createElement("img");
-        projectImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split("/")[6]}.png`;
-        projectImage.alt = pokemon.name;
-
-        projectCard.appendChild(projectImage);
-        projectCarousel.appendChild(projectCard);
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
     });
+}, observerOptions);
 
-    // Inicialize o carrossel com o Slick Carousel
-    initCarousel();
-}
-
-// Função para inicializar o carrossel com o Slick Carousel
-function initCarousel() {
-    $('.project-carousel').slick({
-        slidesToShow: 3, // Mostrar 3 slides de uma vez
-        slidesToScroll: 1, // Rolagem de 1 em 1
-        infinite: true, // Loop infinito
-        centerMode: true, // Modo de centro para mostrar partes dos Pokémon adjacentes
-        variableWidth: true, // Largura variável para permitir diferentes larguras de slides
-        prevArrow: $('#prev-slide'), // Botão anterior
-        nextArrow: $('#next-slide') // Botão próximo
-    });
-}
-
-// Chame a função para buscar informações sobre Pokémon quando a página for carregada
-getPokemonInfo();
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+}); 
